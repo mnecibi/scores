@@ -1,9 +1,11 @@
 defmodule ScoresWeb.Feedbacks do
   use Phoenix.LiveView
-  import Phoenix.LiveView.Router
   alias Scores.Feedbacks
+  import ScoresWeb.Gettext
 
-  def mount(_feedbacks, _, socket) do
+  def mount(_, %{"locale" => locale}, socket) do
+    Gettext.put_locale(locale)
+
     {:ok, assign(socket, feedbacks: Feedbacks.list)}
   end
 end

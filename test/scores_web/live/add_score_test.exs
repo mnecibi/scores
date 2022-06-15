@@ -1,8 +1,10 @@
 defmodule ScoresWeb.AddScoreTest do
+  use Scores.DataCase
   use ScoresWeb.ConnCase, async: true
   import Phoenix.LiveViewTest
 
   test "displays form", %{conn: conn} do
+    existing_user = Factory.insert(:game)
     {:ok, view, _html} = live(conn, "/games/1/add_score")
 
     assert has_element?(view, "form")

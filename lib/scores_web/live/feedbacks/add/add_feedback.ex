@@ -3,7 +3,8 @@ defmodule ScoresWeb.AddFeedback do
   alias Scores.Feedbacks
   alias Scores.Feedbacks.Feedback
 
-  def mount(_feedback, _session, socket) do
+  def mount(_, %{"locale" => locale}, socket) do
+    Gettext.put_locale(locale)
     {:ok, assign(socket, changeset: Feedbacks.change_feedback(%Feedback{}))}
   end
 

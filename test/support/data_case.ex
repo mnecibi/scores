@@ -19,6 +19,7 @@ defmodule Scores.DataCase do
   using do
     quote do
       alias Scores.Repo
+      alias Scores.Factory
 
       import Ecto
       import Ecto.Changeset

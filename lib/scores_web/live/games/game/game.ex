@@ -2,7 +2,12 @@ defmodule ScoresWeb.Game do
   use Phoenix.LiveView
   alias Scores.Games
 
-  def mount(%{"id" => id}, _session, socket) do
+  import ScoresWeb.Gettext
+
+  def mount(%{"id" => id}, %{"locale" => locale}, socket) do
+
+    Gettext.put_locale(locale)
+
     socket = socket
       |> assign(game: Games.get(id))
       |> assign(totals: Games.totals(id))

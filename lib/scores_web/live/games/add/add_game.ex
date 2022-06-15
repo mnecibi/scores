@@ -3,7 +3,8 @@ defmodule ScoresWeb.AddGame do
   alias Scores.Games
   alias Scores.Games.Game
 
-  def mount(_game, _session, socket) do
+  def mount(_game, %{"locale" => locale}, socket) do
+    Gettext.put_locale(locale)
     {:ok, assign(socket, changeset: Games.change_game(%Game{}))}
   end
 

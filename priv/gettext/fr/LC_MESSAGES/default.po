@@ -1,0 +1,190 @@
+## "msgid"s in this file come from POT (.pot) files.
+##
+## Do not add, change, or remove "msgid"s manually here as
+## they're tied to the ones in the corresponding POT file
+## (with the same domain).
+##
+## Use "mix gettext.extract --merge" or "mix gettext.merge"
+## to merge POT files into PO files.
+msgid ""
+msgstr ""
+"Language: fr\n"
+"Plural-Forms: nplurals=2\n"
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/home.html.heex:21
+msgid "Add LiveView PubSub feature"
+msgstr "L'ajout de la fonctionnalité LiveView PubSub"
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/home.html.heex:10
+msgid "Add, update and delete"
+msgstr "Ajouter, mettre à jour et supprimer"
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/home.html.heex:20
+msgid "Authentication and Authorization"
+msgstr "L'authentification et l'autorisation"
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/home.html.heex:27
+msgid "Feedback"
+msgstr "Feedback"
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/home.html.heex:8
+msgid "For now, you can :"
+msgstr "Pour l'instant, tu peux:"
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/games/games.html.heex:2
+msgid "Games"
+msgstr "Les parties"
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/home.html.heex:18
+msgid "Groups/Players Management"
+msgstr "La gestion des Groupes/Joueurs"
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/home.html.heex:4
+msgid "I'm currently working on this awesome webapp for you to use!"
+msgstr "Je suis actuellement entrain de travailler sur cette superbe webapp."
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/home.html.heex:11
+msgid "Send feedbacks"
+msgstr "Envoyer des feedbacks"
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/home.html.heex:27
+msgid "Tell me about your experience with this app"
+msgstr "Partage avec moi ton experience"
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/home.html.heex:3
+msgid "UNDER CONSTRUCTION"
+msgstr "EN CONSTRUCTION"
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/home.html.heex:19
+msgid "Update fixed 5 players game"
+msgstr "Le controle du nombre de joueurs par partie."
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/home.html.heex:16
+msgid "What is coming soon?"
+msgstr "Qu'est ce qui arrive bientôt?"
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/home.html.heex:28
+msgid "YES!"
+msgstr "OUI!"
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/home.html.heex:10
+msgid "and their scores"
+msgstr "et leur scores"
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/games/games.html.heex:7
+#: lib/scores_web/live/games/games.html.heex:8
+#: lib/scores_web/live/games/games.html.heex:9
+#: lib/scores_web/live/games/games.html.heex:10
+#: lib/scores_web/live/games/games.html.heex:11
+msgid "Player"
+msgstr "Joueur"
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/games/add/add_game.html.heex:2
+#: lib/scores_web/live/games/add/add_game.html.heex:27
+#: lib/scores_web/live/games/games.html.heex:44
+msgid "Add game"
+msgstr "Ajouter une partie"
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/games/game/game.html.heex:47
+msgid "Add round score"
+msgstr "Ajoute le resultat d'une nouvelle manche"
+
+#, elixir-autogen, elixir-format, fuzzy
+#: lib/scores_web/live/games/game/game.html.heex:3
+msgid "Game"
+msgstr "La partie"
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/games/game/game.html.heex:26
+msgid "Saving..."
+msgstr "Sauvegarde..."
+
+#, elixir-autogen, elixir-format, fuzzy
+#: lib/scores_web/live/home.html.heex:10
+msgid "games"
+msgstr "les parties"
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/games/add_score/add_score.html.heex:27
+msgid "Add"
+msgstr "Ajouter"
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/feedbacks/add/add_feedback.html.heex:3
+#: lib/scores_web/live/feedbacks/add/add_feedback.html.heex:23
+msgid "Add feedback"
+msgstr "Donne ton avis"
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/feedbacks/add/add_feedback.html.heex:23
+msgid "Adding feedback..."
+msgstr "Entrain d'ajouter le feedback..."
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/games/add/add_game.html.heex:27
+#: lib/scores_web/live/games/add_score/add_score.html.heex:27
+msgid "Adding..."
+msgstr "Entrain d'ajouter..."
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/feedbacks/add/add_feedback.html.heex:19
+msgid "Overall, how did you like this app?"
+msgstr "Comment tu trouve la webapp?"
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/games/add_score/add_score.html.heex:2
+msgid "Round score"
+msgstr "Nouvelle manche"
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/games/add_score/add_score.html.heex:3
+msgid "Scores must be of type integer - if a player's score is null please insert 0"
+msgstr "Les résultats doivent être composés de chiffres - si un joueur a un score null, mets un 0"
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/feedbacks/feedbacks.html.heex:2
+msgid "Thank you for your feedback"
+msgstr "Merci pour ton feedback"
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/feedbacks/add/add_feedback.html.heex:15
+msgid "Think of a feature you would like to see in the future?"
+msgstr "Pense à une nouvelle fonctionnalité que tu aimerais voir dans le future?"
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/feedbacks/add/add_feedback.html.heex:11
+msgid "What did you dislike about this app?"
+msgstr "Qu'est ce que tu as moins aimé?"
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/feedbacks/add/add_feedback.html.heex:7
+msgid "What did you like about this app?"
+msgstr "Qu'est ce que tu as aimé?"
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/templates/layout/root.html.heex:46
+msgid "Created by"
+msgstr "Créé par"
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/templates/layout/root.html.heex:47
+msgid "using"
+msgstr "en utilisant"

@@ -1,5 +1,5 @@
 <section class="section section--add-game">
-    <h2 class="add-game__title">Add game</h2>
+    <h2 class="add-game__title"><%= gettext("Add game") %></h2>
     
     <%= form_for @changeset, "#", [phx_submit: :add_game], fn f -> %>
 
@@ -24,6 +24,6 @@
         <%= error_tag f, :player_5 %>
 
 
-        <%= submit "Add game", phx_disable_with: "Adding..." %>
+        <%= submit gettext("Add game"), phx_disable_with: gettext("Adding...") %>
     <% end %>
 </section>

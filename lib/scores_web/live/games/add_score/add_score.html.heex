@@ -1,6 +1,6 @@
 <section class="section section--add-score">
-    <h2 class="add-score__title">Round score</h2>
-    <div class="add-score__info">Scores must be of type integer - if a player's score is null please insert 0</div>
+    <h2 class="add-score__title"><%= gettext("Round score") %></h2>
+    <div class="add-score__info"><%= gettext("Scores must be of type integer - if a player's score is null please insert 0") %></div>
 
     <%= form_for @changeset, "#", [phx_submit: :add_score], fn f -> %>
 
@@ -24,6 +24,6 @@
         <%= text_input f, :player_5, id: "player_5" %>
         <%= error_tag f, :player_5 %>
 
-        <%= submit "Add round score", phx_disable_with: "Adding..." %>
+        <%= submit gettext("Add"), phx_disable_with: gettext("Adding...") %>
     <% end %>
 </section>

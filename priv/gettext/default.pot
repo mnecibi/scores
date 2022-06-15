@@ -1,0 +1,189 @@
+## This file is a PO Template file.
+##
+## "msgid"s here are often extracted from source code.
+## Add new translations manually only if they're dynamic
+## translations that can't be statically extracted.
+##
+## Run "mix gettext.extract" to bring this file up to
+## date. Leave "msgstr"s empty as changing them here has no
+## effect: edit them in PO (.po) files instead.
+msgid ""
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/home.html.heex:21
+msgid "Add LiveView PubSub feature"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/home.html.heex:10
+msgid "Add, update and delete"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/home.html.heex:20
+msgid "Authentication and Authorization"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/home.html.heex:27
+msgid "Feedback"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/home.html.heex:8
+msgid "For now, you can :"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/games/games.html.heex:2
+msgid "Games"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/home.html.heex:18
+msgid "Groups/Players Management"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/home.html.heex:4
+msgid "I'm currently working on an awesome webapp for you to use!"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/home.html.heex:11
+msgid "Send feedbacks"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/home.html.heex:27
+msgid "Tell me about your experience with this app"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/home.html.heex:3
+msgid "UNDER CONSTRUCTION"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/home.html.heex:19
+msgid "Update fixed 5 players game"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/home.html.heex:16
+msgid "What is coming soon?"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/home.html.heex:28
+msgid "YES!"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/home.html.heex:10
+msgid "and their scores"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/games/games.html.heex:7
+#: lib/scores_web/live/games/games.html.heex:8
+#: lib/scores_web/live/games/games.html.heex:9
+#: lib/scores_web/live/games/games.html.heex:10
+#: lib/scores_web/live/games/games.html.heex:11
+msgid "Player"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/games/add/add_game.html.heex:2
+#: lib/scores_web/live/games/add/add_game.html.heex:27
+#: lib/scores_web/live/games/games.html.heex:44
+msgid "Add game"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/games/game/game.html.heex:47
+msgid "Add round score"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/games/game/game.html.heex:3
+msgid "Game"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/games/game/game.html.heex:26
+msgid "Saving..."
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/home.html.heex:10
+msgid "games"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/games/add_score/add_score.html.heex:27
+msgid "Add"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/feedbacks/add/add_feedback.html.heex:3
+#: lib/scores_web/live/feedbacks/add/add_feedback.html.heex:23
+msgid "Add feedback"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/feedbacks/add/add_feedback.html.heex:23
+msgid "Adding feedback..."
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/games/add/add_game.html.heex:27
+#: lib/scores_web/live/games/add_score/add_score.html.heex:27
+msgid "Adding..."
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/feedbacks/add/add_feedback.html.heex:19
+msgid "Overall, how did you like this app?"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/games/add_score/add_score.html.heex:2
+msgid "Round score"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/games/add_score/add_score.html.heex:3
+msgid "Scores must be of type integer - if a player's score is null please insert 0"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/feedbacks/feedbacks.html.heex:2
+msgid "Thank you for your feedback"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/feedbacks/add/add_feedback.html.heex:15
+msgid "Think of a feature you would like to see in the future?"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/feedbacks/add/add_feedback.html.heex:11
+msgid "What did you dislike about this app?"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/feedbacks/add/add_feedback.html.heex:7
+msgid "What did you like about this app?"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/templates/layout/root.html.heex:46
+msgid "Created by"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/templates/layout/root.html.heex:47
+msgid "using"
+msgstr ""

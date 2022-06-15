@@ -3,7 +3,8 @@ defmodule ScoresWeb.AddScore do
   alias Scores.Games
   alias Scores.Games.Score
 
-  def mount(%{"id" => id}, _session, socket) do
+  def mount(%{"id" => id}, %{"locale" => locale}, socket) do
+    Gettext.put_locale(locale)
     {:ok, assign(socket, [changeset: Games.change_game_score(%Score{}), game: Games.get(id)])}
   end
 

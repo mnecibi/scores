@@ -1,32 +1,31 @@
 
 <section class="section section--presentation">
-    <h1>UNDER CONSTRUCTION</h1>
-    <p>I'm currently working on an awesome webapp for you to use!</p>
+    <h1><%= gettext("UNDER CONSTRUCTION") %></h1>
+    <p><%= gettext("I'm currently working on this awesome webapp for you to use!") %></p>
 </section>
 
 <section class="section--available-actions">
-    <h3 class="home">For now, you can :</h3>
+    <h3 class="home"><%= gettext("For now, you can :") %></h3>
     <ul>
-        <li>Add, update and delete <%= live_redirect "Games", to: "/games" %> and their scores.</li>
-        <li>Send feedbacks</li>
+        <li><%= gettext("Add, update and delete") %> <%= live_redirect gettext("games"), to: "/games" %> <%= gettext("and their scores") %>.</li>
+        <li><%= gettext("Send feedbacks") %></li>
     </ul>
 </section>
 
 <section class="section--coming-soon">
-    <h3>What is coming soon?</h3>
+    <h3><%= gettext("What is coming soon?") %></h3>
     <ul>
-        <li>Groups/Players Management</li>
-        <li>Update fixed 5 players game</li>
-        <li>Authentication and Authorization</li>
-        <li>Localization</li>
-        <li>Add LiveView PubSub feature</li>
+        <li><%= gettext("Groups/Players Management") %></li>
+        <li><%= gettext("Update fixed 5 players game") %></li>
+        <li><%= gettext("Authentication and Authorization") %></li>
+        <li><%= gettext("Add LiveView PubSub feature") %></li>
     </ul>
 </section>
 <hr>
 <section class="section--feedback">
     <div>
-        <span><strong>Feedback:</strong> Tell me about your experience with this app.</span>
-        <a href="/feedbacks/add">YES!</a>
+        <span><strong><%= gettext("Feedback")%>:</strong> <%= gettext("Tell me about your experience with this app") %>.</span>
+        <%= live_redirect gettext("YES!"), to: "/feedbacks/add" %>
     </div>
 </section>
 

@@ -1,14 +1,15 @@
 
 <section class="section section--game">
-    <h2>Game</h2>
+    <h2><%= gettext("Game") %></h2>
+
     <table>
         <thead>
             <tr>
-                <td><%= @game.player_1 %></td>
-                <td><%= @game.player_2 %></td>
-                <td><%= @game.player_3 %></td>
-                <td><%= @game.player_4 %></td>
-                <td><%= @game.player_5 %></td>
+                <th><%= @game.player_1 %></th>
+                <th><%= @game.player_2 %></th>
+                <th><%= @game.player_3 %></th>
+                <th><%= @game.player_4 %></th>
+                <th><%= @game.player_5 %></th>
             </tr>
         </thead>
         <tbody>
@@ -22,8 +23,10 @@
                     <td>
                         <form phx-submit="delete_score">
                             <input type="hidden" name="score_id" value={score.id} >
-                            <button type="submit" phx-disable-with="Saving...">
-                                <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48"><path d="M13.05 42Q11.85 42 10.95 41.1Q10.05 40.2 10.05 39V10.5H8V7.5H17.4V6H30.6V7.5H40V10.5H37.95V39Q37.95 40.2 37.05 41.1Q36.15 42 34.95 42ZM34.95 10.5H13.05V39Q13.05 39 13.05 39Q13.05 39 13.05 39H34.95Q34.95 39 34.95 39Q34.95 39 34.95 39ZM18.35 34.7H21.35V14.75H18.35ZM26.65 34.7H29.65V14.75H26.65ZM13.05 10.5V39Q13.05 39 13.05 39Q13.05 39 13.05 39Q13.05 39 13.05 39Q13.05 39 13.05 39Z"/></svg>
+                            <button type="submit" phx-disable-with={gettext("Saving...")}>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 48 48">
+                                    <path d="M13.05 42Q11.85 42 10.95 41.1Q10.05 40.2 10.05 39V10.5H8V7.5H17.4V6H30.6V7.5H40V10.5H37.95V39Q37.95 40.2 37.05 41.1Q36.15 42 34.95 42ZM34.95 10.5H13.05V39Q13.05 39 13.05 39Q13.05 39 13.05 39H34.95Q34.95 39 34.95 39Q34.95 39 34.95 39ZM18.35 34.7H21.35V14.75H18.35ZM26.65 34.7H29.65V14.75H26.65ZM13.05 10.5V39Q13.05 39 13.05 39Q13.05 39 13.05 39Q13.05 39 13.05 39Q13.05 39 13.05 39Z"/>
+                                </svg>
                             </button>
                         </form>
                     </td>
@@ -32,14 +35,14 @@
         </tbody>
         <tfoot>
             <tr>
-                <td><%= @totals.player_1 %></td>
-                <td><%= @totals.player_2 %></td>
-                <td><%= @totals.player_3 %></td>
-                <td><%= @totals.player_4 %></td>
-                <td><%= @totals.player_5 %></td>
+                <th><%= @totals.player_1 %></th>
+                <th><%= @totals.player_2 %></th>
+                <th><%= @totals.player_3 %></th>
+                <th><%= @totals.player_4 %></th>
+                <th><%= @totals.player_5 %></th>
             </tr>
         </tfoot>
     </table>
 
-    <h3><%= live_redirect "Add round score", to: "/games/"<>to_string(@game.id)<>"/add_score" %></h3>
+    <h3><%= live_redirect gettext("Add round score"), to: "/games/"<>to_string(@game.id)<>"/add_score" %></h3>
 </section>
