@@ -1,0 +1,29 @@
+<section class="section section--add-score">
+    <h2 class="add-score__title">Round score</h2>
+    <div class="add-score__info">Scores must be of type integer - if a player's score is null please insert 0</div>
+
+    <%= form_for @changeset, "#", [phx_submit: :add_score], fn f -> %>
+
+        <%= label f, :player_1, @game.player_1 %>
+        <%= text_input f, :player_1, id: "player_1" %>
+        <%= error_tag f, :player_1 %>
+
+        <%= label f, :player_2, @game.player_2 %>
+        <%= text_input f, :player_2, id: "player_2" %>
+        <%= error_tag f, :player_2 %>
+        
+        <%= label f, :player_3, @game.player_3 %>
+        <%= text_input f, :player_3, id: "player_3" %>
+        <%= error_tag f, :player_3 %>
+
+        <%= label f, :player_4, @game.player_4 %>
+        <%= text_input f, :player_4, id: "player_4" %>
+        <%= error_tag f, :player_4 %>
+
+        <%= label f, :player_5, @game.player_5 %>
+        <%= text_input f, :player_5, id: "player_5" %>
+        <%= error_tag f, :player_5 %>
+
+        <%= submit "Add round score", phx_disable_with: "Adding..." %>
+    <% end %>
+</section>

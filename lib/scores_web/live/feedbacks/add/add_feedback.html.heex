@@ -1,0 +1,25 @@
+<section class="section--add-feedback">
+
+    <h2 class="add-feedback__title">Add feedback</h2>
+
+    <%= form_for @changeset, "#", [phx_submit: :add_feedback], fn f -> %>
+        
+        <%= label f, :liked, "What did you like about this app?" %>
+        <%= textarea f, :liked, id: "liked" %>
+        <%= error_tag f, :liked %>
+
+        <%= label f, :disliked, "What did you dislike about this app?" %>
+        <%= textarea f, :disliked, id: "disliked" %>
+        <%= error_tag f, :disliked %>
+
+        <%= label f, :to_add, "Think of a feature you would like to see in the future?" %>
+        <%= textarea f, :to_add, id: "to_add" %>
+        <%= error_tag f, :to_add %>
+
+        <%= label f, :score, "Overall, how did you like this app?" %>
+        <%= select f, :score, ["Excellent!": 5, "Very good!": 4, "Good.": 3, "Fair": 2, "Poor": 1], selected: [5] %>
+        <%= error_tag f, :score %>
+
+        <%= submit "Add feedback", phx_disable_with: "Adding feedback..." %>
+    <% end %>
+</section>
