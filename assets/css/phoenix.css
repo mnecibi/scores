@@ -52,12 +52,16 @@ select {
   display: block;
 }
 
-/* Headers */
 header {
   width: 100%;
   background: #fdfdfd;
   border-bottom: 1px solid #eaeaea;
   margin-bottom: 2rem;
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
 }
 header section {
   align-items: center;
@@ -86,8 +90,7 @@ header nav ul {
 header nav a {
   display: block;
 }
-
-@media (min-width: 40.0rem) { /* Small devices (landscape phones, 576px and up) */
+@media (min-width: 40.0rem) {
   header section {
     flex-direction: row;
   }
@@ -98,4 +101,53 @@ header nav a {
     flex-basis: 527px;
     margin: 2rem 1rem;
   }
+}
+header img {
+  width: 40px;
+}
+header a {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: #000000;
+  font-weight: 500;
+}
+header a:hover {
+  color: #000000;
+  opacity: 0.8;
+}
+section {
+  max-width: 80rem;
+  padding: 0 2rem;
+  margin: 0 auto;
+}
+section.section--feedback div{
+  display: flex;
+  justify-content: space-between;
+}
+section.section--feedback button{
+  height: 3rem;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+footer {
+  display: flex;
+  max-width: 80rem;
+  padding: 0 2rem;
+  margin: 0 auto;
+  justify-content: space-between;
+  color: #888;
+  font-size: 12px;
+}
+
+footer svg {
+  height: 20px;
+}
+
+footer div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
