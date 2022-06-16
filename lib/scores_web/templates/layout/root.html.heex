@@ -17,18 +17,21 @@
       <% end %>
       <nav class="language-switcher">
         <ul>
-          <li>
-            <a href="?locale=en">
-              <span>🇬🇧</span>
-              <span>English</span>
-            </a>
-          </li>
-          <li>
-            <a href="?locale=fr">
-              <span>🇫🇷</span>
-              <span>Français</span>
-            </a>
-          </li>
+          <%= if @conn.private.plug_session["locale"] != "fr" do %>
+            <li>
+              <a href="?locale=fr">
+                <span>🇫🇷</span>
+                <span>Français</span>
+              </a>
+            </li>
+          <% else %>
+            <li>
+              <a href="?locale=en">
+                <span>🇬🇧</span>
+                <span>English</span>
+              </a>
+            </li>
+          <% end %>
         </ul>
       </nav>
     </header>
