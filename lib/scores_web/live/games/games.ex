@@ -15,7 +15,7 @@ defmodule ScoresWeb.Games do
         socket =
           socket
           |> put_flash(:info, "Game successfully deleted")
-          |> redirect(to:  "/games")
+          |> push_redirect(to:  "/games")
 
         {:noreply, socket}
 

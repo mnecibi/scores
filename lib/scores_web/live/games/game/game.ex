@@ -22,7 +22,7 @@ defmodule ScoresWeb.Game do
           socket
           |> put_flash(:info, "Score successfully deleted")
           |> assign(socket, totals: Games.totals(socket.assigns.game.id))
-          |> redirect(to:  "/games/"<>to_string(socket.assigns.game.id))
+          |> push_redirect(to:  "/games/"<>to_string(socket.assigns.game.id))
 
         {:noreply, socket}
 

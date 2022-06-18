@@ -14,7 +14,7 @@ defmodule ScoresWeb.AddGame do
         socket =
           socket
           |> put_flash(:info, "Game successfully created")
-          |> redirect(to: Routes.live_path(socket, ScoresWeb.Games))
+          |> push_redirect(to: Routes.live_path(socket, ScoresWeb.Games))
 
         {:noreply, socket}
 

@@ -14,7 +14,7 @@ defmodule ScoresWeb.AddScore do
         socket =
           socket
           |> put_flash(:info, "Score successfully created")
-          |> redirect(to:  "/games/"<>to_string(socket.assigns.game.id))
+          |> push_redirect(to:  "/games/"<>to_string(socket.assigns.game.id))
 
         {:noreply, socket}
 

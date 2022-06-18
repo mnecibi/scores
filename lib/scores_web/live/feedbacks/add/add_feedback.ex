@@ -14,7 +14,7 @@ defmodule ScoresWeb.AddFeedback do
         socket =
           socket
           |> put_flash(:info, "Feedback successfully created")
-          |> redirect(to: Routes.live_path(socket, ScoresWeb.Feedbacks))
+          |> push_redirect(to: Routes.live_path(socket, ScoresWeb.Feedbacks))
 
         {:noreply, socket}
 
