@@ -24,6 +24,10 @@ defmodule ScoresWeb.Router do
     live "/games/:id", Game
     live "/games/:id/add_score", AddScore
 
+
+    live "/groups", Groups
+    live "/groups/add", AddGroup
+
     live "/feedbacks", Feedbacks
     live "/feedbacks/add", AddFeedback
   end

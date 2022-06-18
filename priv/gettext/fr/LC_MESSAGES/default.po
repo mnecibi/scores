@@ -47,11 +47,6 @@ msgid "Groups/Players Management"
 msgstr "La gestion des Groupes/Joueurs"
 
 #, elixir-autogen, elixir-format
-#: lib/scores_web/live/home.html.heex:4
-msgid "I'm currently working on this awesome webapp for you to use!"
-msgstr "Je suis actuellement entrain de travailler sur cette superbe webapp."
-
-#, elixir-autogen, elixir-format
 #: lib/scores_web/live/home.html.heex:11
 msgid "Send feedbacks"
 msgstr "Envoyer des feedbacks"
@@ -96,24 +91,24 @@ msgid "Player"
 msgstr "Joueur"
 
 #, elixir-autogen, elixir-format
-#: lib/scores_web/live/games/add/add_game.html.heex:2
-#: lib/scores_web/live/games/add/add_game.html.heex:27
+#: lib/scores_web/live/games/add_game/add_game.html.heex:2
+#: lib/scores_web/live/games/add_game/add_game.html.heex:27
 #: lib/scores_web/live/games/games.html.heex:44
 msgid "Add game"
 msgstr "Ajouter une partie"
 
 #, elixir-autogen, elixir-format
-#: lib/scores_web/live/games/game/game.html.heex:47
+#: lib/scores_web/live/games/game/game.html.heex:46
 msgid "Add round score"
 msgstr "Ajoute le resultat d'une nouvelle manche"
 
 #, elixir-autogen, elixir-format, fuzzy
-#: lib/scores_web/live/games/game/game.html.heex:3
+#: lib/scores_web/live/games/game/game.html.heex:2
 msgid "Game"
 msgstr "La partie"
 
 #, elixir-autogen, elixir-format
-#: lib/scores_web/live/games/game/game.html.heex:26
+#: lib/scores_web/live/games/game/game.html.heex:25
 msgid "Saving..."
 msgstr "Sauvegarde..."
 
@@ -139,8 +134,9 @@ msgid "Adding feedback..."
 msgstr "Entrain d'ajouter le feedback..."
 
 #, elixir-autogen, elixir-format
-#: lib/scores_web/live/games/add/add_game.html.heex:27
+#: lib/scores_web/live/games/add_game/add_game.html.heex:27
 #: lib/scores_web/live/games/add_score/add_score.html.heex:27
+#: lib/scores_web/live/groups/add/add_group.html.heex:10
 msgid "Adding..."
 msgstr "Entrain d'ajouter..."
 
@@ -180,11 +176,59 @@ msgid "What did you like about this app?"
 msgstr "Qu'est ce que tu as aimé?"
 
 #, elixir-autogen, elixir-format
-#: lib/scores_web/templates/layout/root.html.heex:46
+#: lib/scores_web/templates/layout/root.html.heex:49
 msgid "Created by"
 msgstr "Créé par"
 
 #, elixir-autogen, elixir-format
-#: lib/scores_web/templates/layout/root.html.heex:47
+#: lib/scores_web/templates/layout/root.html.heex:50
 msgid "using"
 msgstr "en utilisant"
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/groups/add/add_group.html.heex:2
+#: lib/scores_web/live/groups/add/add_group.html.heex:10
+#: lib/scores_web/live/groups/groups.html.heex:29
+msgid "Add group"
+msgstr "Ajouter un groupe"
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/groups/groups.html.heex:2
+msgid "Groups"
+msgstr "Groupes"
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/home.html.heex:4
+msgid "I'm currently working on this awesome webapp for you to use!"
+msgstr "Je suis actuellement entrain de travailler sur cette superbe webapp."
+
+#, elixir-autogen, elixir-format, fuzzy
+#: lib/scores_web/live/groups/add/add_group.html.heex:6
+#: lib/scores_web/live/groups/groups.html.heex:7
+msgid "Name"
+msgstr "Nom"
+
+#, elixir-autogen, elixir-format, fuzzy
+#: lib/scores_web/live/games/add_game/add_game.html.heex:6
+msgid "Player 1"
+msgstr "Joueur 1"
+
+#, elixir-autogen, elixir-format, fuzzy
+#: lib/scores_web/live/games/add_game/add_game.html.heex:10
+msgid "Player 2"
+msgstr "Joueur 2"
+
+#, elixir-autogen, elixir-format, fuzzy
+#: lib/scores_web/live/games/add_game/add_game.html.heex:14
+msgid "Player 3"
+msgstr "Joueur 3"
+
+#, elixir-autogen, elixir-format, fuzzy
+#: lib/scores_web/live/games/add_game/add_game.html.heex:18
+msgid "Player 4"
+msgstr "Joueur 4"
+
+#, elixir-autogen, elixir-format, fuzzy
+#: lib/scores_web/live/games/add_game/add_game.html.heex:22
+msgid "Player 5"
+msgstr "Joueur 5"

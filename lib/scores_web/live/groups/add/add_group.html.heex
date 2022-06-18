@@ -1,0 +1,12 @@
+<section class="section section--add-group">
+    <h2 class="add-group__title"><%= gettext("Add group") %></h2>
+    
+    <%= form_for @changeset, "#", [phx_submit: :add_group], fn f -> %>
+
+        <%= label f, gettext("Name"), for: "name" %>
+        <%= text_input f, :name, id: "name" %>
+        <%= error_tag f, :name %>
+
+        <%= submit gettext("Add group"), phx_disable_with: gettext("Adding...") %>
+    <% end %>
+</section>

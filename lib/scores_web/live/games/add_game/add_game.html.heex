@@ -3,23 +3,23 @@
     
     <%= form_for @changeset, "#", [phx_submit: :add_game], fn f -> %>
 
-        <%= label f, :player_1, for: "player_1" %>
+        <%= label f, gettext("Player 1"), for: "player_1" %>
         <%= text_input f, :player_1, id: "player_1" %>
         <%= error_tag f, :player_1 %>
 
-        <%= label f, :player_2, for: "player_2" %>
+        <%= label f, gettext("Player 2"), for: "player_2" %>
         <%= text_input f, :player_2, id: "player_2" %>
         <%= error_tag f, :player_2 %>
 
-        <%= label f, :player_3, for: "player_3" %>
+        <%= label f, gettext("Player 3"), for: "player_3" %>
         <%= text_input f, :player_3, id: "player_3" %>
         <%= error_tag f, :player_3 %>
 
-        <%= label f, :player_4, for: "player_4" %>
+        <%= label f, gettext("Player 4"), for: "player_4" %>
         <%= text_input f, :player_4, id: "player_4" %>
         <%= error_tag f, :player_4 %>
 
-        <%= label f, :player_5, for: "player_5" %>
+        <%= label f, gettext("Player 5"), for: "player_5" %>
         <%= text_input f, :player_5, id: "player_5" %>
         <%= error_tag f, :player_5 %>
 

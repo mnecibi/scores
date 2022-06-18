@@ -8,7 +8,6 @@ defmodule Scores.Games.Game do
     field :player_3, :string
     field :player_4, :string
     field :player_5, :string
-
     has_many :scores, Scores.Games.Score, on_delete: :delete_all
 
     timestamps()
