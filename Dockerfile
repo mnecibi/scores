@@ -40,7 +40,7 @@ RUN mix compile
 # Changes to config/runtime.exs don't require recompiling the code
 COPY config/runtime.exs config/
 
-RUN mix release
+RUN MIX_ENV=prod mix release
 
 ###
 ### Final Stage - Separate image to keep it smaller
@@ -49,7 +49,7 @@ FROM alpine:3.16 AS app
 RUN apk update --no-cache \
   && apk add --no-cache libstdc++ openssl ncurses-libs
 
-ENV LANG en_US.UTF-8
+ENV LANG=en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
@@ -64,4 +64,4 @@ COPY --from=builder --chown=nobody:root /app/_build/${MIX_ENV}/rel/scores ./
 
 USER nobody
 
-CMD ["sh", "-c","/app/bin/scores eval Scores.Release.migrate && /app/bin/server"]
+CMD ["sh", "-c", "/app/bin/scores eval Scores.Release.migrate ; /app/bin/scores start"]
