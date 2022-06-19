@@ -1,41 +1,56 @@
-#==============
-# Build Stage
-#==============
-FROM bitwalker/alpine-elixir:1.13 as build
+###
+### Builder Stage
+###
+FROM elixir:1.13-alpine AS builder
 
-# Copy the source folder into the Docker image
-COPY . .
+RUN apk update --no-cache \
+  && apk add --no-cache build-base openssh git
 
-# Install dependencies and build Release
-RUN export MIX_ENV=prod && \
-    rm -Rf _build && \
-    rm -Rf /export && \
-    mix local.hex --force && \
-    mix local.rebar --force && \
-    mix deps.get --only prod && \
-    mix release scores
+WORKDIR /app
 
-# Extract Release archive to /rel for copying in next stage
-RUN APP_NAME="scores" && \
-    RELEASE_DIR=`ls -d $HOME/_build/prod/rel/$APP_NAME` && \
-    mkdir /export && mkdir /export/scores && \
-    cp -rf $RELEASE_DIR /export/scores
+RUN mix local.hex --force \
+  && mix local.rebar --force
 
-#====================
-# Deployment Stage
-#====================
-FROM build
-
-# Set environment variables
-ENV HOME=/opt/app
 ENV MIX_ENV=prod
 
-WORKDIR $HOME
+COPY mix.exs mix.lock ./
+RUN mix deps.get --only $MIX_ENV
+RUN mkdir config
 
-USER root
+COPY config/config.exs config/${MIX_ENV}.exs config/
+RUN mix deps.compile
 
-# Copy and Release files from the previous stage
-COPY --from=build /export/* $HOME
+COPY lib lib
+RUN mix compile
 
-#Set default entrypoint and command
-CMD ["/opt/app/scores/bin/scores", "start"]
+COPY priv priv
+COPY assets assets
+RUN mix assets.deploy
+
+COPY config/runtime.exs config/
+RUN mix release
+
+###
+### Final Stage - Separate image to keep it smaller
+###
+FROM alpine:3.16 AS app
+RUN apk update --no-cache \
+  && apk add --no-cache libstdc++ openssl ncurses-libs
+
+ENV LANG=en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
+ENV ECTO_IPV6 true
+ENV ERL_AFLAGS "-proto_dist inet6_tcp"
+
+WORKDIR /app
+RUN chown nobody /app
+
+COPY --from=builder --chown=nobody:root /app/_build/prod/rel ./
+
+USER nobody:nobody
+
+RUN set -eux; \
+  ln -nfs /app/$(basename *)/bin/$(basename *) /app/entry
+
+CMD /app/entry start
