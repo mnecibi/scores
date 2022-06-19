@@ -40,8 +40,8 @@ RUN apk update --no-cache \
 ENV LANG=en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
-ENV ECTO_IPV6 true
-ENV ERL_AFLAGS "-proto_dist inet6_tcp"
+ENV DATABASE_URL=ecto://postgres:postgres@127.0.0.1:5432/scores_dev
+ENV SECRET_KEY_BASE=test
 
 WORKDIR /app
 RUN chown nobody /app
@@ -53,4 +53,4 @@ USER nobody:nobody
 RUN set -eux; \
   ln -nfs /app/$(basename *)/bin/$(basename *) /app/entry
 
-CMD /app/entry start
+CMD ["sh", "-c", "/app/entry eval Scores.Release.migrate && /app/entry start"]
