@@ -22,5 +22,6 @@ config :scores, MyApp.Repo,
   """
 
 config :my_app, Scores.Endpoint,
+  server: true,
   http: [:inet6, port: 4000],
   secret_key_base: secret_key_base
