@@ -32,6 +32,4 @@ scores-*.tar
 npm-debug.log
 /assets/node_modules/
 
-mix.lock
-
 .elixir_ls
