@@ -11,23 +11,36 @@ WORKDIR /app
 RUN mix local.hex --force \
   && mix local.rebar --force
 
-ENV MIX_ENV=prod
+# set build ENV
+ENV MIX_ENV="prod"
 
+# install mix dependencies
 COPY mix.exs mix.lock ./
 RUN mix deps.get --only $MIX_ENV
 RUN mkdir config
 
+# copy compile-time config files before we compile dependencies
+# to ensure any relevant config change will trigger the dependencies
+# to be re-compiled.
 COPY config/config.exs config/${MIX_ENV}.exs config/
 RUN mix deps.compile
 
-COPY lib lib
-RUN mix compile
-
 COPY priv priv
+
+COPY lib lib
+
 COPY assets assets
+
+# compile assets
 RUN mix assets.deploy
 
+# Compile the release
+RUN mix compile
+
+# Changes to config/runtime.exs don't require recompiling the code
 COPY config/runtime.exs config/
+
+COPY rel rel
 RUN mix release
 
 ###
@@ -37,20 +50,19 @@ FROM alpine:3.16 AS app
 RUN apk update --no-cache \
   && apk add --no-cache libstdc++ openssl ncurses-libs
 
-ENV LANG=en_US.UTF-8
+ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
-ENV DATABASE_URL=ecto://postgres:postgres@127.0.0.1:5432/scores_dev
-ENV SECRET_KEY_BASE=test
 
-WORKDIR /app
+WORKDIR "/app"
 RUN chown nobody /app
 
-COPY --from=builder --chown=nobody:root /app/_build/prod/rel ./
+# set runner ENV
+ENV MIX_ENV="prod"
 
-USER nobody:nobody
+# Only copy the final release from the build stage
+COPY --from=builder --chown=nobody:root /app/_build/${MIX_ENV}/rel/scores ./
 
-RUN set -eux; \
-  ln -nfs /app/$(basename *)/bin/$(basename *) /app/entry
+USER nobody
 
-CMD ["sh", "-c", "/app/entry eval Scores.Release.migrate && /app/entry start"]
+CMD ["sh", "-c","/app/bin/scores eval Scores.Release.migrate && /app/bin/server"]

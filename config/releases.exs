@@ -1,7 +1,7 @@
 import Config
 
 
-db_host = System.get_env("DATABASE_HOST") ||
+db_host = System.get_env("docker container run -it [docker_image] /bin/bash") ||
   raise """
   environment variable DATABASE_HOST is missing.
   """
@@ -22,5 +22,5 @@ config :scores, MyApp.Repo,
   """
 
 config :my_app, Scores.Endpoint,
-  http: [:inet6, port: 4001],
+  http: [:inet6, port: 4000],
   secret_key_base: secret_key_base

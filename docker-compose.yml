@@ -1,9 +1,11 @@
+version: "3.7"
+
 services:
     db:
         image: postgres
         restart: always
         container_name: database
-        environment: # Used by the postgres image to setup a default user. For security reason, you should avoid using the postgres user
+        environment:
             POSTGRES_USER: postgres
             POSTGRES_PASSWORD: postgres
             POSTGRES_DB: scores_dev
@@ -19,7 +21,7 @@ services:
         depends_on:
             - db
         ports: # Docker need to expose ports for you to access your app.
-            - "127.0.0.1:4000:4000"
+            - "4000:4000"
         environment:
-            DATABASE_URL: "ecto://postgres:postgres@database/scores_dev" # Template : "ecto://db_user:db_password@ip_or_compose_service_name/db_name"
-            SECRET_KEY_BASE: really_long_secret # Can literally be anything, but generally generated randomly by tools like mix phx.gen.secret
+            DATABASE_URL: "ecto://postgres:postgres@database/scores_dev" 
+            SECRET_KEY_BASE: "really_long_secret" # Can literally be anything, but generally generated randomly by tools like mix phx.gen.secret
