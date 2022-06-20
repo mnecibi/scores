@@ -119,13 +119,29 @@
   100% { opacity: 0; }
 }
 
+.language-switcher {
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+}
+
+.language-switcher ul {
+  margin: 0;
+  padding: 0;
+}
+
 .language-switcher svg {
   width: 20px;
+}
+
+@media (max-width: 40.0rem) {
+  .language-switcher {font-size: 1.2rem;}
 }
 
 
 table th {
   font-weight: 500;
+  min-width: 102px;
 }
 
 table td form {
