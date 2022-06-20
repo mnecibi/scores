@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 
 #, elixir-autogen, elixir-format
-#: lib/scores_web/live/home.html.heex:21
+#: lib/scores_web/live/home.html.heex:23
 msgid "Add LiveView PubSub feature"
 msgstr ""
 
@@ -21,12 +21,12 @@ msgid "Add, update and delete"
 msgstr ""
 
 #, elixir-autogen, elixir-format
-#: lib/scores_web/live/home.html.heex:20
+#: lib/scores_web/live/home.html.heex:18
 msgid "Authentication and Authorization"
 msgstr ""
 
 #, elixir-autogen, elixir-format
-#: lib/scores_web/live/home.html.heex:27
+#: lib/scores_web/live/home.html.heex:29
 msgid "Feedback"
 msgstr ""
 
@@ -36,13 +36,9 @@ msgid "For now, you can :"
 msgstr ""
 
 #, elixir-autogen, elixir-format
-#: lib/scores_web/live/games/games.html.heex:2
+#: lib/scores_web/live/games/game/game.html.heex:2
+#: lib/scores_web/live/groups/group/group.html.heex:2
 msgid "Games"
-msgstr ""
-
-#, elixir-autogen, elixir-format
-#: lib/scores_web/live/home.html.heex:18
-msgid "Groups/Players Management"
 msgstr ""
 
 #, elixir-autogen, elixir-format
@@ -51,7 +47,7 @@ msgid "Send feedbacks"
 msgstr ""
 
 #, elixir-autogen, elixir-format
-#: lib/scores_web/live/home.html.heex:27
+#: lib/scores_web/live/home.html.heex:29
 msgid "Tell me about your experience with this app"
 msgstr ""
 
@@ -61,7 +57,7 @@ msgid "UNDER CONSTRUCTION"
 msgstr ""
 
 #, elixir-autogen, elixir-format
-#: lib/scores_web/live/home.html.heex:19
+#: lib/scores_web/live/home.html.heex:22
 msgid "Update fixed 5 players game"
 msgstr ""
 
@@ -71,28 +67,28 @@ msgid "What is coming soon?"
 msgstr ""
 
 #, elixir-autogen, elixir-format
-#: lib/scores_web/live/home.html.heex:28
+#: lib/scores_web/live/home.html.heex:30
 msgid "YES!"
 msgstr ""
 
 #, elixir-autogen, elixir-format
 #: lib/scores_web/live/home.html.heex:10
-msgid "and their scores"
+msgid "and their games"
 msgstr ""
 
 #, elixir-autogen, elixir-format
-#: lib/scores_web/live/games/games.html.heex:7
-#: lib/scores_web/live/games/games.html.heex:8
-#: lib/scores_web/live/games/games.html.heex:9
-#: lib/scores_web/live/games/games.html.heex:10
-#: lib/scores_web/live/games/games.html.heex:11
+#: lib/scores_web/live/groups/group/group.html.heex:7
+#: lib/scores_web/live/groups/group/group.html.heex:8
+#: lib/scores_web/live/groups/group/group.html.heex:9
+#: lib/scores_web/live/groups/group/group.html.heex:10
+#: lib/scores_web/live/groups/group/group.html.heex:11
 msgid "Player"
 msgstr ""
 
 #, elixir-autogen, elixir-format
 #: lib/scores_web/live/games/add_game/add_game.html.heex:2
 #: lib/scores_web/live/games/add_game/add_game.html.heex:27
-#: lib/scores_web/live/games/games.html.heex:44
+#: lib/scores_web/live/groups/group/group.html.heex:45
 msgid "Add game"
 msgstr ""
 
@@ -109,11 +105,6 @@ msgstr ""
 #, elixir-autogen, elixir-format
 #: lib/scores_web/live/games/game/game.html.heex:25
 msgid "Saving..."
-msgstr ""
-
-#, elixir-autogen, elixir-format
-#: lib/scores_web/live/home.html.heex:10
-msgid "games"
 msgstr ""
 
 #, elixir-autogen, elixir-format
@@ -187,11 +178,12 @@ msgstr ""
 #, elixir-autogen, elixir-format
 #: lib/scores_web/live/groups/add/add_group.html.heex:2
 #: lib/scores_web/live/groups/add/add_group.html.heex:10
-#: lib/scores_web/live/groups/groups.html.heex:29
 msgid "Add group"
 msgstr ""
 
 #, elixir-autogen, elixir-format
+#: lib/scores_web/live/games/game/game.html.heex:2
+#: lib/scores_web/live/groups/group/group.html.heex:2
 #: lib/scores_web/live/groups/groups.html.heex:2
 msgid "Groups"
 msgstr ""
@@ -230,4 +222,29 @@ msgstr ""
 #, elixir-autogen, elixir-format
 #: lib/scores_web/live/games/add_game/add_game.html.heex:22
 msgid "Player 5"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/groups/groups.html.heex:36
+msgid "Create group"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/home.html.heex:10
+msgid "groups"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/home.html.heex:19
+msgid "Add groupe invitation"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/home.html.heex:21
+msgid "Create a link between users and players"
+msgstr ""
+
+#, elixir-autogen, elixir-format
+#: lib/scores_web/live/home.html.heex:20
+msgid "Groups/Users Management"
 msgstr ""
