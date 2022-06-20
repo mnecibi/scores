@@ -3,7 +3,7 @@ defmodule ScoresWeb.AddScore do
   alias Scores.Games
   alias Scores.Games.Score
 
-  def mount(%{"id" => id}, %{"locale" => locale}, socket) do
+  def mount(%{"game_id" => id}, %{"locale" => locale}, socket) do
     Gettext.put_locale(locale)
     {:ok, assign(socket, [changeset: Games.change_game_score(%Score{}), game: Games.get(id)])}
   end
@@ -14,7 +14,7 @@ defmodule ScoresWeb.AddScore do
         socket =
           socket
           |> put_flash(:info, "Score successfully created")
-          |> push_redirect(to:  "/games/"<>to_string(socket.assigns.game.id))
+          |> push_redirect(to:  "/groups/"<>to_string(socket.assigns.game.group_id)<>"/"<>to_string(socket.assigns.game.id))
 
         {:noreply, socket}
 

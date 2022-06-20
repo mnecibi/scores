@@ -16,6 +16,7 @@ defmodule Scores.Groups do
   @spec get(:string) :: Group.t()
   def get(id) do
     Repo.get(Group, id)
+    |> Repo.preload(:games)
   end
 
   @doc """

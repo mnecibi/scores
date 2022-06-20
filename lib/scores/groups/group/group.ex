@@ -5,6 +5,8 @@ defmodule Scores.Groups.Group do
   schema "groups" do
     field :name, :string
 
+    has_many :games, Scores.Games.Game, on_delete: :delete_all
+
     timestamps()
   end
 

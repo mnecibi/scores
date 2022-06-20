@@ -1,5 +1,5 @@
 <section class="section section--games">
-    <h2><%= gettext("Games") %></h2>
+    <h2><%= live_redirect gettext("Groups"), to: "/groups" %> > <%= gettext("Games") %></h2>
 
     <table>
         <thead>
@@ -12,7 +12,7 @@
             </tr>
         </thead>
         <tbody>
-            <%= for game <- @games do %>
+            <%= for game <- @group.games do %>
                 <tr>
                     <td><%= game.player_1 %></td>
                     <td><%= game.player_2 %></td>
@@ -20,7 +20,7 @@
                     <td><%= game.player_4 %></td>
                     <td><%= game.player_5 %></td>
                     <td>
-                        <%= live_redirect to: "/games/"<>to_string(game.id)  do %>
+                        <%= live_redirect to: "/groups/"<>to_string(@group.id)<>"/"<>to_string(game.id)  do %>
                             <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 48 48">
                                 <path d="M9 39H11.2L33.35 16.85L31.15 14.65L9 36.8ZM39.7 14.7 33.3 8.3 35.4 6.2Q36.25 5.35 37.5 5.35Q38.75 5.35 39.6 6.2L41.8 8.4Q42.65 9.25 42.65 10.5Q42.65 11.75 41.8 12.6ZM37.6 16.8 12.4 42H6V35.6L31.2 10.4ZM32.25 15.75 31.15 14.65 33.35 16.85Z"/>
                             </svg>
@@ -28,6 +28,7 @@
                     </td>
                     <td>
                         <form phx-submit="delete_game">
+                            <input type="hidden" name="group_id" value={@group.id} >
                             <input type="hidden" name="game_id" value={game.id} >
                             <button type="submit" phx-disable-with="Saving...">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 48 48">
@@ -41,5 +42,5 @@
         </tbody>
     </table>
 
-    <h3><%= live_redirect gettext("Add game"), to: "/games/add" %></h3>
+    <h3><%= live_redirect gettext("Add game"), to: "/groups/"<>to_string(@group.id)<>"/add_game" %></h3>
 </section>

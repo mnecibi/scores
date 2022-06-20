@@ -1,12 +1,14 @@
-defmodule ScoresWeb.Games do
+defmodule ScoresWeb.Group do
   use Phoenix.LiveView
+  alias Scores.Games.Game
   alias Scores.Games
+  alias Scores.Groups
 
   import ScoresWeb.Gettext
 
-  def mount(_, %{"locale" => locale}, socket) do
+  def mount(%{"group_id" => id}, %{"locale" => locale}, socket) do
     Gettext.put_locale(locale)
-    {:ok, assign(socket, games: Games.list)}
+    {:ok, assign(socket, [changeset: Games.change_game(%Game{}), group: Groups.get(id)])}
   end
 
   def handle_event("delete_game", %{"game_id" => game_id}, socket) do
@@ -15,7 +17,7 @@ defmodule ScoresWeb.Games do
         socket =
           socket
           |> put_flash(:info, "Game successfully deleted")
-          |> push_redirect(to:  "/games")
+          |> push_redirect(to: "/groups/"<>to_string(socket.assigns.group.id))
 
         {:noreply, socket}
 

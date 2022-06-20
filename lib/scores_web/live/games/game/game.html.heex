@@ -1,5 +1,5 @@
 <section class="section section--game">
-    <h2><%= gettext("Game") %></h2>
+    <h2><%= live_redirect gettext("Groups"), to: "/groups" %> > <%= live_redirect gettext("Games"), to: "/groups/"<>to_string(@game.group_id) %> > <%= gettext("Game") %></h2>
 
     <table>
         <thead>
@@ -43,5 +43,5 @@
         </tfoot>
     </table>
 
-    <h2><%= live_redirect gettext("Add round score"), to: "/games/"<>to_string(@game.id)<>"/add_score" %></h2>
+    <h2><%= live_redirect gettext("Add round score"), to: "/groups/"<>to_string(@game.group_id)<>"/"<>to_string(@game.id)<>"/add_score" %></h2>
 </section>

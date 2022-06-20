@@ -2,6 +2,8 @@ defmodule Scores.Games do
   alias Scores.Repo
   alias Scores.Games.Score
   alias Scores.Games.Game
+  alias Scores.Groups
+  alias Scores.Groups.Group
 
   @doc """
   List all games.
@@ -47,13 +49,21 @@ defmodule Scores.Games do
 
 
   @doc """
-  Add a game score.
+  Add a game.
   """
-  @spec add_game(map()) :: {:ok, Game.t()} | {:error, Ecto.Changeset.t()}
-  def add_game(attrs) do
-    %Game{}
-    |> Game.changeset(attrs)
-    |> Repo.insert()
+  @spec add_game(map(), map()) :: {:ok, Group.t()} | {:error, Ecto.Changeset.t()}
+  def add_game(group, attrs) do
+    Repo.transaction fn ->
+
+      group = Repo.get_by(Group, id: group.id)
+      |> Repo.preload(:games)
+
+
+      new_game = Ecto.build_assoc(group, :games, attrs)
+
+      Game.changeset(new_game, attrs)
+      |> Repo.insert()
+    end
   end
 
   @doc """

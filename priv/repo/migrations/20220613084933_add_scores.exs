@@ -8,6 +8,7 @@ defmodule Scores.Repo.Migrations.AddScores do
       add(:player_3, :integer, null: false)
       add(:player_4, :integer, null: false)
       add(:player_5, :integer, null: false)
+
       add(:game_id, references(:games, on_delete: :nothing))
 
       timestamps()

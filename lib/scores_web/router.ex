@@ -19,14 +19,13 @@ defmodule ScoresWeb.Router do
     pipe_through :browser
 
     live "/", Home
-    live "/games", Games
-    live "/games/add", AddGame
-    live "/games/:id", Game
-    live "/games/:id/add_score", AddScore
-
 
     live "/groups", Groups
     live "/groups/add", AddGroup
+    live "/groups/:group_id", Group
+    live "/groups/:group_id/add_game", AddGame
+    live "/groups/:group_id/:game_id", Game
+    live "/groups/:group_id/:game_id/add_score", AddScore
 
     live "/feedbacks", Feedbacks
     live "/feedbacks/add", AddFeedback
