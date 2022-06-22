@@ -21,7 +21,16 @@ config :scores, MyApp.Repo,
   You can generate one by calling: mix phx.gen.secret
   """
 
-config :my_app, Scores.Endpoint,
+config :scores, Scores.Endpoint,
   server: true,
   http: [:inet6, port: 4000],
   secret_key_base: secret_key_base
+
+
+config :ueberauth, Ueberauth,
+  providers: [
+    google: {Ueberauth.Strategy.Google, [default_score: "email profile"] }
+  ]
+config :ueberauth, Ueberauth.Strategy.Google.OAuth,
+  client_id: System.get_env("GOOGLE_CLIENT_ID"),
+  client_secret: System.get_env("GOOGLE_CLIENT_SECRET")
