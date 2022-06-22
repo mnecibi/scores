@@ -21,6 +21,9 @@ defmodule ScoresWeb.Router do
 
     live "/groups", Groups
     live "/groups/add", AddGroup
+
+    live "/groups/invites/:invite_id", GroupInvite
+
     live "/groups/:group_id", Group
     live "/groups/:group_id/add_game", AddGame
     live "/groups/:group_id/:game_id", Game

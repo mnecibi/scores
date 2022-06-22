@@ -227,9 +227,9 @@ defmodule Scores.Accounts do
 
     with {:ok, _struct} <-
            user
-           |> User.changeset_update_groups([group])
+           |> User.changeset_update_groups([group] ++ user.groups)
            |> Repo.update() do
-      {:ok, get_by_id(user.id)}
+      {:ok, group}
     else
       error ->
         error

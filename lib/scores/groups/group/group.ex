@@ -7,6 +7,7 @@ defmodule Scores.Groups.Group do
     field :name, :string
 
     has_many :games, Scores.Games.Game, on_delete: :delete_all
+    has_many :group_invites, Scores.Groups.GroupInvite, on_delete: :delete_all
 
     many_to_many :users, User, join_through: Scores.UsersGroups, on_replace: :delete
 

@@ -1,0 +1,8 @@
+<section class="section section--group-invite">
+    <h2><%= live_redirect gettext("Groups"), to: "/groups" %></h2>
+    <%= if Map.has_key?(assigns, :group) and Map.has_key?(assigns.group, :name) do %>
+        <h2><%= gettext("You have been added to the group: ") <> @group.name %>!</h2>
+    <% else %>
+        <h2><%= gettext("Invalid group invite.") %></h2>
+    <% end %>
+</section>

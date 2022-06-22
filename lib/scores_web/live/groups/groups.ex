@@ -24,4 +24,20 @@ defmodule ScoresWeb.Groups do
         {:noreply, assign(socket, changeset: changeset)}
     end
   end
+
+
+  def handle_event("add_group_invite", %{"group_id" => group_id}, socket) do
+    case Groups.add_group_invite(%{}, group_id) do
+      {:ok, _group} ->
+        socket =
+          socket
+          |> put_flash(:info, "Group invite successfully created")
+          |> push_redirect(to:  "/groups")
+
+        {:noreply, socket}
+
+      {:error, changeset} ->
+        {:noreply, assign(socket, changeset: changeset)}
+    end
+  end
 end

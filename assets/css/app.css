@@ -165,10 +165,11 @@ table td svg {
   width: 24px;
 }
 
-table tbody td:last-child {
-  padding: 0;
-}
-
 table tfoot th {
   border: none;
+}
+
+.btn--log-out {
+  display: flex;
+  padding-left: 10px;
 }
