@@ -33,3 +33,7 @@ npm-debug.log
 /assets/node_modules/
 
 .elixir_ls
+
+rel
+
+priv/static

@@ -3,6 +3,7 @@ defmodule ScoresWeb.AddScoreTest do
   use ScoresWeb.ConnCase, async: true
   import Phoenix.LiveViewTest
 
+  # TODO update tests
   test "displays form", %{conn: conn} do
     existing_user = Factory.insert(:game)
     {:ok, view, _html} = live(conn, "/games/1/add_score")

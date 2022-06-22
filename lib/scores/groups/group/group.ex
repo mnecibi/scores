@@ -1,11 +1,14 @@
 defmodule Scores.Groups.Group do
   use Ecto.Schema
   import Ecto.Changeset
+  alias Scores.Accounts.User
 
   schema "groups" do
     field :name, :string
 
     has_many :games, Scores.Games.Game, on_delete: :delete_all
+
+    many_to_many :users, User, join_through: Scores.UsersGroups, on_replace: :delete
 
     timestamps()
   end

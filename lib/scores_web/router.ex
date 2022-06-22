@@ -1,6 +1,8 @@
 defmodule ScoresWeb.Router do
   use ScoresWeb, :router
 
+  import ScoresWeb.UserAuth
+
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session
@@ -9,14 +11,11 @@ defmodule ScoresWeb.Router do
     plug :protect_from_forgery
     plug :put_secure_browser_headers
     plug ScoresWeb.Locale
-  end
-
-  pipeline :api do
-    plug :accepts, ["json"]
+    plug :fetch_current_user
   end
 
   scope "/", ScoresWeb do
-    pipe_through :browser
+    pipe_through [:browser, :require_authenticated_user]
 
     live "/", Home
 
@@ -63,5 +62,35 @@ defmodule ScoresWeb.Router do
 
       forward "/mailbox", Plug.Swoosh.MailboxPreview
     end
+  end
+
+  ## Authentication routes
+
+  scope "/", ScoresWeb do
+    pipe_through [:browser, :redirect_if_user_is_authenticated]
+
+    get "/auth/:provider", UserOauthController, :request
+    get "/auth/:provider/callback", UserOauthController, :callback
+
+    get "/users/register", UserRegistrationController, :new
+    get "/users/log_in", UserSessionController, :new
+  end
+
+  scope "/", ScoresWeb do
+    pipe_through [:browser, :require_authenticated_user]
+
+    get "/users/settings", UserSettingsController, :edit
+    put "/users/settings", UserSettingsController, :update
+    get "/users/settings/confirm_email/:token", UserSettingsController, :confirm_email
+  end
+
+  scope "/", ScoresWeb do
+    pipe_through [:browser]
+
+    delete "/users/log_out", UserSessionController, :delete
+    get "/users/confirm", UserConfirmationController, :new
+    post "/users/confirm", UserConfirmationController, :create
+    get "/users/confirm/:token", UserConfirmationController, :edit
+    post "/users/confirm/:token", UserConfirmationController, :update
   end
 end

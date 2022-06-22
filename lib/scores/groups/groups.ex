@@ -1,13 +1,26 @@
 defmodule Scores.Groups do
   alias Scores.Repo
   alias Scores.Groups.Group
+  alias Scores.Accounts
+  alias Ecto.UUID
+  import Ecto.Query
 
   @doc """
   List all groups.
   """
-  @spec list :: list(Group.t())
-  def list do
-    Repo.all(Group)
+  @spec list(:string) :: list(Group.t())
+  def list(user_id) do
+
+    {:ok, user_id} = UUID.dump(user_id);
+
+    query = from ug in "users_groups",
+        where: ug.user_id == ^user_id,
+        left_join: group in Group,
+        on: group.id == ug.group_id,
+        select: group
+
+    Repo.all(query)
+
   end
 
   @doc """
@@ -31,11 +44,18 @@ defmodule Scores.Groups do
   @doc """
   Add a group.
   """
-  @spec add_group(map()) :: {:ok, Group.t()} | {:error, Ecto.Changeset.t()}
-  def add_group(attrs) do
-    %Group{}
-    |> Group.changeset(attrs)
-    |> Repo.insert()
+  @spec add_group(map(), :string) :: {:ok, Group.t()} | {:error, Ecto.Changeset.t()}
+  def add_group(attrs, user_id) do
+    Repo.transaction fn ->
+
+      user = Accounts.get_by_id(user_id)
+
+      {:ok, group} = %Group{}
+      |> Group.changeset(attrs)
+      |> Repo.insert()
+
+      Accounts.upsert_user_groups(user, group)
+    end
   end
 
   @doc """

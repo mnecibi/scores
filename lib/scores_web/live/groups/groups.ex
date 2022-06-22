@@ -1,12 +1,13 @@
 defmodule ScoresWeb.Groups do
   use Phoenix.LiveView
   alias Scores.Groups
+  alias Scores.Accounts
 
   import ScoresWeb.Gettext
 
-  def mount(_, %{"locale" => locale}, socket) do
+  def mount(_, %{"locale" => locale, "user_token" => user_token}, socket) do
     Gettext.put_locale(locale)
-    {:ok, assign(socket, groups: Groups.list)}
+    {:ok, assign(socket, groups: Groups.list(Accounts.get_user_by_session_token(user_token).id))}
   end
 
   def handle_event("delete_group", %{"group_id" => group_id}, socket) do

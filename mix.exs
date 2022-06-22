@@ -20,7 +20,7 @@ defmodule Scores.MixProject do
   def application do
     [
       mod: {Scores.Application, []},
-      extra_applications: [:logger, :runtime_tools]
+      extra_applications: [:logger, :runtime_tools, :ueberauth, :ueberauth_google]
     ]
   end
 
@@ -33,6 +33,7 @@ defmodule Scores.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:bcrypt_elixir, "~> 3.0"},
       {:phoenix, "~> 1.6.10"},
       {:phoenix_ecto, "~> 4.4"},
       {:ecto_sql, "~> 3.6"},
@@ -49,6 +50,9 @@ defmodule Scores.MixProject do
       {:gettext, "~> 0.18"},
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
+      {:oauth2, "~> 2.0"},
+      {:ueberauth, "~> 0.7.0"},
+      {:ueberauth_google, "~> 0.10.1"},
       {:ex_machina, "~> 2.7", only: [:dev, :test]},
       {:mix_test_watch, "~> 1.0", only: [:dev, :test], runtime: false}
     ]

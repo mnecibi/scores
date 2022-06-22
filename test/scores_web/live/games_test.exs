@@ -1,7 +1,7 @@
 defmodule ScoresWeb.GamesTest do
   use ScoresWeb.ConnCase, async: true
   import Phoenix.LiveViewTest
-
+  # TODO update test
   test "check games", %{conn: conn} do
     {:ok, view, _html} = live(conn, "/games")
 
