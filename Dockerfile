@@ -4,7 +4,7 @@
 FROM elixir:1.13-alpine AS builder
 
 RUN apk update --no-cache \
-  && apk add --no-cache build-base openssh git
+  && apk add --no-cache build-base openssh git nodejs npm
 
 WORKDIR /app
 

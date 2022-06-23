@@ -25,8 +25,7 @@ config :scores, ScoresWeb.Endpoint,
   debug_errors: true,
   secret_key_base: "tiX8bToJgJ0Wqov/EkNy6/R3uvP5BhLTx8YZhtZ4NNq8uR9nCgC3+sA4X8Oy/cZz",
   watchers: [
-    # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
-    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
+    node: ["build.js", "--watch", cd: Path.expand("../assets", __DIR__)]
   ]
 
 # ## SSL Support
