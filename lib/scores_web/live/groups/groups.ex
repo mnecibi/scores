@@ -28,11 +28,11 @@ defmodule ScoresWeb.Groups do
 
   def handle_event("add_group_invite", %{"group_id" => group_id}, socket) do
     case Groups.add_group_invite(%{}, group_id) do
-      {:ok, _group} ->
+      {:ok, group_invite} ->
         socket =
           socket
-          |> put_flash(:info, "Group invite successfully created")
-          |> push_redirect(to:  "/groups")
+          |> put_flash(:info, "Group invite has been copied")
+          |> push_event("group-invite-created", %{:id => group_invite.id})
 
         {:noreply, socket}
 

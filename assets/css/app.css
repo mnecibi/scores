@@ -119,23 +119,44 @@
   100% { opacity: 0; }
 }
 
-.language-switcher {
+.menu {
   display: flex;
   align-items: center;
   font-size: 1.4rem;
+  position: relative;
 }
 
-.language-switcher ul {
+.menu button {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
   margin: 0;
   padding: 0;
 }
 
-.language-switcher svg {
+.menu svg {
   width: 20px;
 }
 
+.menu__content {
+  position: absolute;
+  border: 1px solid black;
+  background-color: white;
+  padding: 10px;
+  border-radius: 6px;
+  right: 0;
+  top: 39px;
+  min-width: 100px;
+  z-index: 10;
+}
+
+.menu__link--flag {
+  font-size: 18px;
+}
+
 @media (max-width: 40.0rem) {
-  .language-switcher {font-size: 1.2rem;}
+  .menu {font-size: 1.2rem;}
 }
 
 
@@ -169,7 +190,35 @@ table tfoot th {
   border: none;
 }
 
-.btn--log-out {
+.login-google {
   display: flex;
-  padding-left: 10px;
+  background-color: #4285f4;
+  border: none;
+  color: #fff;
+  width: 250px;
+  margin: 100px auto;
+}
+
+.login-google__wrapper {
+  border: 1px solid transparent;
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.login-google__icon-wrapper {
+  background-color: #fff;
+  border-radius: 1px;
+}
+
+.login-google__text {
+  font-family: Roboto,arial,sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: .21px;
+    margin-left: 6px;
+    margin-right: 6px;
+    vertical-align: top;
+    width: 100%;
+    text-align: center;
 }

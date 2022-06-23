@@ -38,4 +38,8 @@ rel
 
 priv/static
 
-**.secret.exs
+/config/*.secret.exs
+
+.DS_Store
+
+fly.toml

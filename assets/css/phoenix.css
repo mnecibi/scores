@@ -127,7 +127,7 @@ header img {
 header a {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 12px;
   color: #000000;
   font-weight: 500;
 }

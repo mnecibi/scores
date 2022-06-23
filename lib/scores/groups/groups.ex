@@ -95,8 +95,10 @@ defmodule Scores.Groups do
 
       new_group_invite = Ecto.build_assoc(group, :group_invites, attrs)
 
-      GroupInvite.changeset(new_group_invite, attrs)
+      {:ok, group_invite} = GroupInvite.changeset(new_group_invite, attrs)
       |> Repo.insert()
+
+      group_invite
     end
   end
 

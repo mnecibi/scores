@@ -22,7 +22,7 @@ defmodule ScoresWeb.Router do
     live "/groups", Groups
     live "/groups/add", AddGroup
 
-    live "/groups/invites/:invite_id", GroupInvite
+    get "/groups/invites/:invite_id", GroupInviteController, :request
 
     live "/groups/:group_id", Group
     live "/groups/:group_id/add_game", AddGame
@@ -68,7 +68,6 @@ defmodule ScoresWeb.Router do
   end
 
   ## Authentication routes
-
   scope "/", ScoresWeb do
     pipe_through [:browser, :redirect_if_user_is_authenticated]
 

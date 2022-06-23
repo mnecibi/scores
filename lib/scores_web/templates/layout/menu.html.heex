@@ -1,0 +1,54 @@
+<div class="menu" x-data="{ open: false }">
+
+  <!-- Button to open and close -->
+  <div class="menu__button">
+    <button x-show="!open" x-on:click="open = !open">
+      <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 48 48">
+        <path d="M6 36V33H42V36ZM6 25.5V22.5H42V25.5ZM6 15V12H42V15Z"/>
+      </svg>
+    </button>
+
+
+    <button x-show="open" x-on:click="open = !open">
+      <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 48 48">
+        <path d="M12.45 37.65 10.35 35.55 21.9 24 10.35 12.45 12.45 10.35 24 21.9 35.55 10.35 37.65 12.45 26.1 24 37.65 35.55 35.55 37.65 24 26.1Z"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Modal -->
+  <div class="menu__content" x-show="open"
+    x-cloak
+    x-transition:enter="transition ease-out duration-100"
+    x-transition:enter-start="opacity-0 transform scale-95"
+    x-transition:enter-end="opacity-100 transform scale-100"
+    x-transition:leave="transition ease-in duration-75"
+    x-transition:leave-start="opacity-100 transform scale-100"
+    x-transition:leave-end="opacity-0 transform scale-95">
+    <div>
+
+      <%= if @conn.private.plug_session["locale"] != "fr" do %>
+        <a href="?locale=fr">
+          <span class="menu__link--flag">🇫🇷</span>
+          <span>Français</span>
+        </a>
+      <% else %>
+        <a href="?locale=en">
+          <span class="menu__link--flag">🇬🇧</span>
+          <span>English</span>
+        </a>
+      <% end %>
+
+      <%= if @current_user do %>
+        <%= link to: Routes.user_session_path(@conn, :delete), method: :delete, class: "btn--log-out" do %>
+          <span><svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 48 48">
+            <path d="M9 42Q7.8 42 6.9 41.1Q6 40.2 6 39V9Q6 7.8 6.9 6.9Q7.8 6 9 6H23.55V9H9Q9 9 9 9Q9 9 9 9V39Q9 39 9 39Q9 39 9 39H23.55V42ZM33.3 32.75 31.15 30.6 36.25 25.5H18.75V22.5H36.15L31.05 17.4L33.2 15.25L42 24.05Z"/>
+          </svg></span>
+          <span><%= gettext("Log out") %></span>
+        <% end %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+

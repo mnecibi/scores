@@ -26,6 +26,11 @@ import {Socket} from "phoenix"
 import {LiveSocket} from "phoenix_live_view"
 import topbar from "../vendor/topbar"
 
+import Alpine from 'alpinejs'
+
+window.Alpine = Alpine
+Alpine.start()
+
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
 let liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToken}})
 
@@ -33,6 +38,20 @@ let liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToke
 topbar.config({barColors: {0: "#29d"}, shadowColor: "rgba(0, 0, 0, .3)"})
 window.addEventListener("phx:page-loading-start", info => topbar.show())
 window.addEventListener("phx:page-loading-stop", info => topbar.hide())
+
+const copyToClipboard = async function(text) {
+  try {
+      await navigator.clipboard.writeText(text);
+  } catch (err) {
+      console.error('Failed to copy: ', err);
+  }
+};
+
+window.addEventListener("phx:group-invite-created", (e) => {
+  url_to_copy = window.location.href + "/invites/" + e.detail.id;
+  copyToClipboard(url_to_copy);
+});
+
 
 // connect if there are any LiveViews on the page
 liveSocket.connect()

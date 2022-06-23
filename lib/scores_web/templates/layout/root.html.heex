@@ -15,26 +15,8 @@
         <img src={Routes.static_path(@conn, "/images/logo.png")} alt="Logo"/>
         <span>SCORES</span>
       <% end %>
-      <nav class="language-switcher">
-        <ul>
-          <%= if @conn.private.plug_session["locale"] != "fr" do %>
-            <li>
-              <a href="?locale=fr">
-                <span>🇫🇷</span>
-                <span>Français</span>
-              </a>
-            </li>
-          <% else %>
-            <li>
-              <a href="?locale=en">
-                <span>🇬🇧</span>
-                <span>English</span>
-              </a>
-            </li>
-          <% end %>
-        </ul>
-        <%= render "_user_menu.html", assigns %>
-      </nav>
+      
+      <%= render "menu.html", assigns %>
     </header>
     <%= @inner_content %>
 
