@@ -18,6 +18,7 @@ defmodule ScoresWeb.Router do
     pipe_through [:browser, :require_authenticated_user]
 
     live "/", Home
+    live "/about", About
 
     live "/groups", Groups
     live "/groups/add", AddGroup

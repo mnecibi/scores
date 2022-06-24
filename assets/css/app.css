@@ -147,7 +147,7 @@
   border-radius: 6px;
   right: 0;
   top: 39px;
-  min-width: 100px;
+  min-width: 150px;
   z-index: 10;
 }
 
@@ -195,7 +195,7 @@ table tfoot th {
   background-color: #4285f4;
   border: none;
   color: #fff;
-  width: 250px;
+  width: 262px;
   margin: 100px auto;
 }
 

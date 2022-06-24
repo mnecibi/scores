@@ -1,4 +1,4 @@
-defmodule ScoresWeb.Home do
+defmodule ScoresWeb.About do
   use ScoresWeb, :live_view
 
   def mount(_, %{"locale" => locale}, socket) do

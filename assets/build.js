@@ -15,7 +15,7 @@ const plugins = [
 let opts = {
   entryPoints: ['js/app.js'],
   bundle: true,
-  target: 'es2017',
+  target: 'es2021',
   outdir: '../priv/static/assets',
   logLevel: 'info',
   loader,
