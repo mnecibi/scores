@@ -1,0 +1,29 @@
+table th {
+    font-weight: 500;
+    min-width: 102px;
+}
+
+table td form {
+    padding: 0;
+    margin: 0;
+}
+
+table td button {
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    border: none;
+    height: 24px;
+}
+
+table td button:hover {
+    background-color: transparent;
+}
+
+table td svg {
+    width: 24px;
+}
+
+table tfoot th {
+    border: none;
+}

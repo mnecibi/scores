@@ -1,11 +1,17 @@
 {
+  "main": "js/app.js",
+  "type": "module",
   "dependencies": {
     "alpinejs": "^3.10.2",
     "phoenix": "../deps/phoenix",
     "phoenix_html": "../deps/phoenix_html",
-    "phoenix_live_view": "../deps/phoenix_live_view"
+    "phoenix_live_view": "../deps/phoenix_live_view",
+    "topbar": "^1.0.1"
   },
   "devDependencies": {
-    "esbuild": "^0.14.47"
+    "autoprefixer": "^10.4.7",
+    "esbuild": "^0.14.47",
+    "esbuild-sass-plugin": "^2.2.6",
+    "postcss": "^8.4.14"
   }
 }

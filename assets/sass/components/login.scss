@@ -1,0 +1,32 @@
+.login-google {
+    display: flex;
+    background-color: #4285f4;
+    border: none;
+    color: #fff;
+    width: 262px;
+    margin: 100px auto;
+}
+
+.login-google__wrapper {
+    border: 1px solid transparent;
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.login-google__icon-wrapper {
+    background-color: #fff;
+    border-radius: 1px;
+}
+
+.login-google__text {
+    font-family: Roboto, arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: .21px;
+    margin-left: 6px;
+    margin-right: 6px;
+    vertical-align: top;
+    width: 100%;
+    text-align: center;
+}

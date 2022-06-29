@@ -1,0 +1,29 @@
+footer {
+    display: flex;
+    max-width: 80rem;
+    padding: 0 2rem;
+    margin: 0 auto;
+    justify-content: space-between;
+    color: #888;
+    font-size: 12px;
+}
+
+footer svg {
+    height: 20px;
+}
+
+footer div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+@media (max-width: 40.0rem) {
+    footer {
+        flex-direction: column;
+    }
+
+    footer>div {
+        padding-bottom: 20px;
+    }
+}

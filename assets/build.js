@@ -1,4 +1,7 @@
-const esbuild = require('esbuild')
+import esbuild from "esbuild";
+import { sassPlugin } from "esbuild-sass-plugin";
+import postcss from 'postcss';
+import autoprefixer from 'autoprefixer';
 
 const args = process.argv.slice(2)
 const watch = args.includes('--watch')
@@ -10,11 +13,18 @@ const loader = {
 
 const plugins = [
   // Add and configure plugins here
+  sassPlugin({
+    async transform(source) {
+        const { css } = await postcss([autoprefixer]).process(source);
+        return css;
+    },
+  })
 ]
 
 let opts = {
   entryPoints: ['js/app.js'],
   bundle: true,
+  metafile: true,
   target: 'es2021',
   outdir: '../priv/static/assets',
   logLevel: 'info',
