@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" style="scrollbar-gutter: stable;">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="csrf-token" content={get_csrf_token()} />
+    <.live_title suffix=" · Scores">
+      <%= assigns[:page_title] || "Home" %>
+    </.live_title>
+    <link phx-track-static rel="stylesheet" href={~p"/assets/app.css"} />
+    <script defer phx-track-static type="text/javascript" src={~p"/assets/app.js"}>
+    </script>
+  </head>
+  <body class="bg-white antialiased">
+    <header>
+      <div class="flex items-center justify-between border-b px-5 py-3 text-sm bg-gray-200">
+        <a href="/" class="text-black text-xl font-bold flex items-center gap-3">
+          <img src={~p"/images/logo.png"} width="36" /> Scores
+        </a>
+
+        <ul class="relative z-10 flex items-center gap-4 justify-end">
+          <%= if @current_user do %>
+            <li class="text-[0.8125rem] leading-6 text-black">
+              <%= @current_user.email %>
+            </li>
+            <li>
+              <.link
+                href={~p"/users/log_out"}
+                method="delete"
+                class="text-[0.8125rem] leading-6 text-black font-semibold hover:text-zinc-900"
+              >
+                <%= gettext("Log out") %>
+              </.link>
+            </li>
+          <% else %>
+            <li>
+              <.link
+                href={~p"/users/log_in"}
+                class="text-[0.8125rem] leading-6 text-black font-semibold hover:text-zinc-900"
+              >
+                <%= gettext("Log in") %>
+              </.link>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </header>
+    <%= @inner_content %>
+    <footer class=" flex items-center justify-center p-5 bg-gray-200">
+      <%= gettext("Made in Brussels 🇧🇪 🍺") %>
+    </footer>
+  </body>
+</html>
