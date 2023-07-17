@@ -4,21 +4,39 @@ defmodule ScoresWeb.GamesLive do
   alias Scores.Game
 
   @impl true
+  def handle_event("toggle_add_game_modal", _params, socket) do
+    socket
+    |> update(:show_add_game_modal, fn show_add_game_modal -> !show_add_game_modal end)
+    |> IO.inspect(label: "#{__ENV__.file}:#{__ENV__.line}")
+    |> noreply()
+  end
+
+  @impl true
   def render(assigns) do
     ~H"""
-    <div class="font-medium text-3xl"><%= gettext("Games: ") %></div>
+    <div class="flex justify-between">
+      <div class="font-medium text-3xl"><%= gettext("Games: ") %></div>
+      <.button phx-click="toggle_add_game_modal">Add Game</.button>
+    </div>
     <div class="flex flex-col">
       <.game :for={game <- @games} game={game} />
     </div>
+    <.modal id="add_game" show={@show_add_game_modal} on_cancel={JS.push("toggle_add_game_modal")}>
+      Add a game:
+    </.modal>
     """
   end
 
-  attr :game, :map, required: true
+  attr(:game, :map, required: true)
 
   defp game(assigns) do
     ~H"""
     <div class="border-b last:border-b-0 py-10 px-6">
-      <div class="flex gap-2">
+      <div class="flex flex-col gap-2">
+        <div>
+          <span class="font-bold"><%= gettext("Name:") %></span>
+          <%= @game.name %>
+        </div>
         <div>
           <span class="font-bold"><%= gettext("Created date:") %></span>
           <.local_datetime date={@game.inserted_at} />
@@ -38,7 +56,7 @@ defmodule ScoresWeb.GamesLive do
     """
   end
 
-  attr :date, :string, required: true
+  attr(:date, :string, required: true)
 
   defp local_datetime(assigns) do
     ~H"""
@@ -48,10 +66,9 @@ defmodule ScoresWeb.GamesLive do
 
   @impl true
   def mount(_params, _session, socket) do
-    socket =
-      socket
-      |> assign(games: Game.list_games())
-
-    {:ok, socket}
+    socket
+    |> assign(games: Game.list_games())
+    |> assign(show_add_game_modal: false)
+    |> ok()
   end
 end

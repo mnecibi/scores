@@ -90,6 +90,9 @@ defmodule ScoresWeb do
       # Shortcut for generating JS commands
       alias Phoenix.LiveView.JS
 
+      defp ok(socket), do: {:ok, socket}
+      defp noreply(socket), do: {:noreply, socket}
+
       # Routes generation with the ~p sigil
       unquote(verified_routes())
     end

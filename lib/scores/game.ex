@@ -2,6 +2,8 @@ defmodule Scores.Game do
   alias Scores.Repo
   alias Scores.Game.Game, as: GameDB
 
+  import Ecto.Query
+
   def create_game(name, player_scores) do
     game_id = Ecto.UUID.generate()
 
@@ -27,5 +29,11 @@ defmodule Scores.Game do
     end
   end
 
-  def list_games(), do: Repo.all(GameDB) |> Repo.preload(player_scores: :player)
+  def list_games() do
+    from(GameDB,
+      order_by: [desc: :inserted_at],
+      preload: [player_scores: :player]
+    )
+    |> Repo.all()
+  end
 end
