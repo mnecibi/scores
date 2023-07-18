@@ -91,6 +91,5 @@ USER nobody
 CMD ["/app/bin/server"]
 
 # Appended by flyctl
-ENV ERL_AFLAGS "-proto_dist inet6_tcp"
 ENV RELEASE_DISTRIBUTION=name
 ENV RELEASE_NODE="scores"
