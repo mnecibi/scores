@@ -61,7 +61,7 @@ if config_env() == :prod do
       ip: {0, 0, 0, 0, 0, 0, 0, 0},
       port: port
     ],
-    check_origin: ["https://scores.necibi.com"],
+    check_origin: [host],
     secret_key_base: secret_key_base
 
   # ## SSL Support
